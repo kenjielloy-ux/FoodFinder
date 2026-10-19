@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodieFind | Recipe Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <a class="brand" href="#home">🥑 FoodieFind</a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#recipes">Recipes</a>
+        <a href="#recent">Recently Viewed</a>
+    </nav>
+
+    <button id="surpriseButton" class="button dark">
+        Surprise Me ↗
+    </button>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="eyebrow">YOUR NEXT DELICIOUS DISCOVERY</p>
+            <h1>Find something<br><em>good to eat.</em></h1>
+
+            <p class="intro">
+                Explore recipes from around the world, discover new
+                favorites, and find something delicious to make today.
+            </p>
+
+            <form id="searchForm" class="search">
+                <input
+                    id="searchInput"
+                    type="search"
+                    placeholder="Search dishes, like pasta or chicken..."
+                >
+                <button class="button primary" type="submit">Search</button>
+            </form>
+
+            <div class="quick">
+                Popular:
+                <button data-query="chicken">Chicken</button>
+                <button data-query="pasta">Pasta</button>
+                <button data-query="cake">Cake</button>
+            </div>
+        </div>
+
+        <div class="hero-art">
+            <div class="circle"></div>
+            <img
+                src="https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg"
+                alt="Delicious prepared meal"
+            >
+            <span class="sticker">MADE WITH ♥</span>
+        </div>
+    </section>
+
+    <section class="section" id="recipes">
+        <div class="heading">
+            <div>
+                <p class="eyebrow">LET'S GET COOKING</p>
+                <h2>Explore recipes</h2>
+            </div>
+            <p>Something delicious is waiting for you.</p>
+        </div>
+
+        <div class="toolbar">
+            <div class="tabs">
+                <button class="filter active" data-filter="all">All recipes</button>
+                <button class="filter" data-filter="favorites">♥ Favorites</button>
+                <button class="filter" data-filter="saved">♡ Cook later</button>
+            </div>
+
+            <div class="selects">
+                <select id="categoryFilter">
+                    <option value="all">All categories</option>
+                </select>
+
+                <select id="areaFilter">
+                    <option value="all">All cuisines</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="result">
+            <strong id="resultTitle">Popular recipes</strong>
+            <span id="recipeCount">Loading...</span>
+        </div>
+
+        <div id="recipeContainer" class="grid">
+            <p class="loading">Finding something delicious...</p>
+        </div>
+
+        <p id="emptyMessage" class="empty hidden">
+            No recipes found. Try another search or change your filters.
+        </p>
+
+        <div class="center">
+            <button id="loadMoreButton" class="button outline hidden">
+                Show more recipes
+            </button>
+        </div>
+    </section>
+
+    <section class="section recent-section" id="recent">
+        <div class="heading">
+            <div>
+                <p class="eyebrow">YOUR LITTLE COOKBOOK</p>
+                <h2>Recently viewed</h2>
+            </div>
+            <p>Recipes you opened recently.</p>
+        </div>
+
+        <div id="recentContainer" class="recent-grid">
+            <p>Your recently viewed recipes will appear here.</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <a class="brand" href="#home">🥑 FoodieFind</a>
+    <p>Made for curious cooks and hungry hearts.</p>
+    <small>
+        Recipe data by
+        <a href="https://www.themealdb.com/" target="_blank" rel="noreferrer">
+            TheMealDB
+        </a>.
+    </small>
+</footer>
+
+<div id="recipeModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div id="modalBackdrop" class="backdrop"></div>
+
+    <article class="modal-panel">
+        <button id="closeModal" class="close" aria-label="Close">×</button>
+        <div id="modalContent"></div>
+    </article>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
